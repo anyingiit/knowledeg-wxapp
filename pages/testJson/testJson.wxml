@@ -1,0 +1,4 @@
+<view class="container">
+	<text class="quTitle"></text>
+	<text class="quOption"></text>
+</view>

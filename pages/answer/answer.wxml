@@ -1,0 +1,19 @@
+<!--pages/answer/answer.wxml-->
+<text class="questionType">随机单项选择题</text>
+<text class="questionPosition">{{queIndex + 1}}/{{questionCount}}</text>
+<swiper class="container" bindchange="onbindchange">
+  <swiper-item class="question-item" wx:for="{{question}}" wx:for-item="item" wx:for-index='questionIndex'>
+    <text class="questionTitle">{{item.testQuestionNum}}、{{item.testQuestion.testQuestionTitle}}</text>
+
+    <block  wx:for="{{item.testQuestion.testQuestionOption.options}}" wx:for-item="queText" wx:for-index='key'>
+      <view class="questionOptionContainer {{item.theme[key].questionOptionContainer}}" bindtap="onChoice" data-option="{{key}}" data-index="{{questionIndex}}">
+				<!-- <text>{{item.theme[key].serial}}</text> -->
+        <view class="serial {{item.theme[key].serial}}">
+          <view class="text {{item.theme[key].text}}">{{key}}</view>
+        </view>
+        <view class="questionOptionText {{item.theme[key].questionOptionText}}">{{queText}}</view>
+      </view>
+    </block>
+
+  </swiper-item>
+</swiper>

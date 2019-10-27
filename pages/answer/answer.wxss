@@ -1,0 +1,96 @@
+/* pages/answer/answer.wxss */
+
+page {
+  background: linear-gradient(0deg, rgba(255, 53, 53, 1) 0%, rgba(252, 255, 172, 1) 60%);
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: block;
+  padding: 0;
+}
+
+.questionType {
+  display: block;
+  width: 357rpx;
+  height: 48rpx;
+  margin: 74rpx 355rpx 51rpx 38rpx;
+  font-size: 50rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(151, 23, 6, 1);
+}
+
+.questionPosition {
+  position: absolute;
+  top: 74rpx;
+  right: 30rpx;
+  font-size: 50rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(151, 23, 6, 1);
+}
+
+.questionTitle {
+  display: block;
+  font-size: 42rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(151, 23, 6, 1);
+  line-height: 71rpx;
+  margin: 0 53.5rpx 44rpx 36rpx;
+}
+/* 开始题目部分css */
+.questionOptionContainer {
+  margin-left: 35rpx;
+  margin-right: 38rpx; /* 设计图未注明 */
+  margin-bottom: 58rpx;
+  word-break: break-all;
+	vertical-align: middle;
+}
+
+.questionOptionContainer > .serial {
+  margin-right: 20rpx;
+  display: inline-block;
+  width: 62rpx;
+  height: 62rpx;
+  border: 1rpx solid #971706;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.serial > .text {
+  text-align: center;
+  line-height: 62rpx;
+  font-size: 40rpx;
+  font-family: SimHei;
+  color: rgb(2, 1, 1);
+	vertical-align: middle;
+}
+
+.questionOptionContainer > .questionOptionText {
+  display: inline;
+  font-size: 42rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(151, 23, 6, 1);
+}
+
+/* 开始正确效果修改 */
+.questionOptionContainer > .serial-right {
+  border: 1rpx solid #2AA515;
+  background-color: #2AA515;
+}
+.serial > .text-right {
+  color: white;
+}
+/* 开始错误效果修改 */
+.questionOptionContainer > .serial-wrong {
+  border: 1rpx solid #D81E06;
+  background-color: #D81E06;
+}
+.serial > .text-wrong {
+  color: white;
+}
+
