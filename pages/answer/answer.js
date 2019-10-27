@@ -89,13 +89,18 @@ Page({
 					[rightTextStr]: "text-right"
 				})
       }
+      wx.hideLoading()
+    }else{
+      wx.showToast({
+        title: '您已经答过该题了哦~',
+        icon: 'none', // "success", "loading", "none"
+      })
     }
     // this.data.question[index]["tap"] == true
     var str = "question["+ index +"].tap"//组合对象路径
     this.setData({//设置自锁
       [str]: true
     })
-		wx.hideLoading()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
