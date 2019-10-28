@@ -1,5 +1,6 @@
 // pages/answer/answer.js
 var getDataFile = require("../../datas/local_db.js")
+var date = new Date()
 function getRandomeArry(quantity, queCount) {
   var originalArray = new Array; //原数组 
   var randoms = new Array;
@@ -32,7 +33,7 @@ Page({
     wx.showLoading({
       title: '试题加载中...',
     })
-    var quantity = 2; //题目数量
+    var quantity = 100; //题目数量
     var queCount = 1000; //出题范围
     var database = getDataFile.merge_db
     //console.log(database["choiceQuestion"]);
@@ -47,9 +48,9 @@ Page({
     this.setData({
       question: question,
       questionQuantity: question.length,
-      queIndex: 0
+      queIndex: 0,
+			answerStartTime: date.getTime()
     })
-    wx.hideLoading()
   },
   onbindchange: function(even) {
     this.setData({
@@ -128,7 +129,7 @@ Page({
       return false
     }
     var datas = new Array
-    var title, content = null
+    var title = null, content = null
     if (haveUnanswered()) {
       title = "警告"
       content = "您还有未作答题目,是否仍然提交"
@@ -142,6 +143,10 @@ Page({
       success(res) {
         if (res.confirm) {
           console.log("用户选择继续...")
+          wx.showLoading({
+            title: '正在生成报告...',
+          })
+          var right = 0,wrong = 0,unanswer = 0
           for (var key in question) {
             var result = question[key]["testQuestion"]["testQuestionOption"]["result"]
             var choice = question[key].tap
@@ -149,20 +154,56 @@ Page({
             if (question[key].tap != null) {
               if (choice == result) {
                 status = true
+                right++
               } else {
                 status = false
+                wrong++
               }
             } else {
               status = null
+              unanswer++
             }
             datas[key] = {
               choice: choice,
               status: status,
+              result: result,
               questionNum: question[key].testQuestionNum,
               systemQuestionNum: key
             }
           }
+					that.setData({
+						submitData:{
+							questionType: "随机单项选择题",
+              rightNum: right,
+              wrongNum: wrong,
+              unanswerNum:unanswer,
+							questionQuantity: that.data.questionQuantity,
+							answerStartTime: that.data.answerStartTime,
+							anserEndTime: date.getTime(),
+							question:datas
+						}
+					})
+          var storageAccount = wx.getStorageSync('account')
+          console.log("得到",storageAccount)
+          var newStorageAccount = new Array()
+          if (storageAccount) {
+            newStorageAccount = storageAccount
+          }else{
+            newStorageAccount = []
+          }
+          var nowPositon = newStorageAccount.push(that.data.submitData)
+          try {
+              wx.setStorageSync('account', newStorageAccount)
+          } catch (e) {
+              console.log("设置newStorageAccount失败...",e)
+          }
+          console.log(newStorageAccount)
+          wx.hideLoading()
+          wx.redirectTo({
+            url: '../account/account?pisition='+nowPositon
+          })
           console.log(datas)
+					console.log(that.data.submitData)
         } else if (res.cancel) {
           console.log("用户选择取消继续提交...")
         }
@@ -173,7 +214,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    wx.hideLoading()
   },
 
   /**

@@ -122,17 +122,15 @@ page {
 
 .simulationPic {
   margin: 0 auto;
-  text-align: center;
-  width: 60rpx;
-  height: 60rpx;
-  background-color: cornflowerblue;
+  width: 74rpx;
+  height: 81rpx;
 }
 
 .submit > .text {
+  margin-top: 9rpx;
   text-align: center;
   font-size: 29rpx;
   font-family: SimHei;
   font-weight: 400;
   color: rgba(151, 23, 6, 1);
-  line-height: 71rpx;
 }

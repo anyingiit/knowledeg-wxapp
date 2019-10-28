@@ -18,7 +18,7 @@
 </swiper>
 <view class="tapBar">
   <view class="submit" bindtap="onSubmit">
-    <view class="simulationPic"></view>
+    <image src='../../images/icon/submit.png' class='simulationPic'></image>
     <text class="text">提交</text>
   </view>
 </view>
