@@ -41,13 +41,15 @@ page {
   line-height: 71rpx;
   margin: 0 53.5rpx 44rpx 36rpx;
 }
+
 /* 开始题目部分css */
+
 .questionOptionContainer {
   margin-left: 35rpx;
   margin-right: 38rpx; /* 设计图未注明 */
   margin-bottom: 58rpx;
   word-break: break-all;
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 .questionOptionContainer > .serial {
@@ -66,7 +68,7 @@ page {
   font-size: 40rpx;
   font-family: SimHei;
   color: rgb(2, 1, 1);
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 .questionOptionContainer > .questionOptionText {
@@ -78,19 +80,59 @@ page {
 }
 
 /* 开始正确效果修改 */
+
 .questionOptionContainer > .serial-right {
-  border: 1rpx solid #2AA515;
-  background-color: #2AA515;
+  border: 1rpx solid #2aa515;
+  background-color: #2aa515;
 }
+
 .serial > .text-right {
   color: white;
 }
+
 /* 开始错误效果修改 */
+
 .questionOptionContainer > .serial-wrong {
-  border: 1rpx solid #D81E06;
-  background-color: #D81E06;
+  border: 1rpx solid #d81e06;
+  background-color: #d81e06;
 }
+
 .serial > .text-wrong {
   color: white;
 }
 
+.tapBar {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  height: 161rpx;
+  background: rgba(255, 255, 255, 1);
+  border-top: 2rpx solid rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.simulationPic {
+  margin: 0 auto;
+  text-align: center;
+  width: 60rpx;
+  height: 60rpx;
+  background-color: cornflowerblue;
+}
+
+.submit > .text {
+  text-align: center;
+  font-size: 29rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(151, 23, 6, 1);
+  line-height: 71rpx;
+}

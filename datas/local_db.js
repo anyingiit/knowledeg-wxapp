@@ -11606,8 +11606,9 @@ var local_database = {
                 'testQuestionOption': {
                     'options': {
                         'A': '4',
-                        'B': 'C8',
-                        'D': '0'
+                        'B': '5',
+												'C': '8',
+                        'D': '10'
                     },
                     'result': 'B'
                 },
@@ -11770,9 +11771,9 @@ var local_database = {
                 'testQuestionOption': {
                     'options': {
                         'A': 'APP',
-                        'B': '联互通',
-                        'C': '用',
-                        'D': '化交流'
+                        'B': '互联互通',
+                        'C': '应用',
+                        'D': '文化交流'
                     },
                     'result': 'B'
                 },
