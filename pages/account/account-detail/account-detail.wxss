@@ -1,1 +1,5 @@
 /* pages/account/account-detail/account-detail.wxss */
+.box{
+  background:linear-gradient(0deg,rgba(255,53,53,1) 0%,rgba(252,255,172,1) 60%);
+  min-height: 1334rpx;
+}

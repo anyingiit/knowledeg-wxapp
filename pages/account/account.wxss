@@ -1,1 +1,22 @@
 /* pages/account/account.wxss */
+.itemContainer{
+  display: flex;
+  flex-direction: column;
+}
+.item{
+  background: red;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5rpx;
+  line-height: 80rpx;
+}
+.num{
+  margin-left: 5rpx;
+  margin-right: 15rpx;
+}
+.type{
+  margin-right: 125rpx;
+}
+.quantity{
+  margin-right: 15rpx;
+}

@@ -1,2 +1,10 @@
 <!--pages/account/account.wxml-->
-<text>pages/account/account.wxml</text>
+<text wx:if="{{account == false}}">这里什么都没有哦,快去答题吧!</text>
+<view class="itemContainer" wx:else>
+  <view class="item" wx:for="{{account}}" wx:key="index">
+    <text class="num">{{index}}.</text>
+    <text class="type">{{item.questionType}}</text>
+    <text class="quantity">总题数:{{item.questionQuantity}}</text>
+    <text class="correctRate">正确数量:{{item.rightNum}}</text>
+  </view>
+</view>

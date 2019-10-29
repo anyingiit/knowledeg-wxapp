@@ -12,7 +12,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.pisition)
+    var account = wx.getStorageSync("account")
+    if (account == null){
+      account = false
+    }
+    this.setData({
+      account: account
+    })
+    if(options.pisition){
+      var openDetailNum = options.pisition
+      console.log(openDetailNum)
+      wx.navigateTo({
+        url: 'account-detail/account-detail?id='+ openDetailNum,
+      })
+    }
   },
 
   /**
