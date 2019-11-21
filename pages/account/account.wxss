@@ -4,13 +4,15 @@
   flex-direction: column;
 }
 .item{
-  background: red;
+  background-color: beige;
   display: flex;
   flex-direction: row;
   margin-bottom: 5rpx;
   line-height: 80rpx;
 }
 .num{
+  width: 32rpx;
+  font-size: 100%;
   margin-left: 5rpx;
   margin-right: 15rpx;
 }

@@ -20,19 +20,26 @@ Page({
       account: account
     })
     if(options.pisition){
-      var openDetailNum = options.pisition
+      var openDetailNum = options.pisition-1
       console.log(openDetailNum)
       wx.navigateTo({
         url: 'account-detail/account-detail?id='+ openDetailNum,
       })
     }
   },
+  onItemTap: function(even) {
+    var index = even.currentTarget.dataset.index;
+    console.log("onItemTap",index);
+    wx.navigateTo({
+      url: 'account-detail/account-detail?id=' + index,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

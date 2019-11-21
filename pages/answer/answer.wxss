@@ -1,21 +1,24 @@
 /* pages/answer/answer.wxss */
 
-page {
+
+.mainContainer{
   background: linear-gradient(0deg, rgba(255, 53, 53, 1) 0%, rgba(252, 255, 172, 1) 60%);
-  height: 100%;
-  width: 100%;
+  min-height: 1334rpx;
+  padding-top: 74rpx;
+  margin-bottom: 161rpx;
 }
 
-.container {
+.questionContainer {
   display: block;
   padding: 0;
+  height: 1200rpx;
 }
 
 .questionType {
   display: block;
   width: 357rpx;
   height: 48rpx;
-  margin: 74rpx 355rpx 51rpx 38rpx;
+  margin: 0 355rpx 51rpx 38rpx;
   font-size: 50rpx;
   font-family: SimHei;
   font-weight: 400;
@@ -44,7 +47,7 @@ page {
 
 /* 开始题目部分css */
 
-.questionOptionContainer {
+.questionOption {
   margin-left: 35rpx;
   margin-right: 38rpx; /* 设计图未注明 */
   margin-bottom: 58rpx;
@@ -52,7 +55,7 @@ page {
   vertical-align: middle;
 }
 
-.questionOptionContainer > .serial {
+.questionOption > .serial {
   margin-right: 20rpx;
   display: inline-block;
   width: 62rpx;
@@ -71,7 +74,7 @@ page {
   vertical-align: middle;
 }
 
-.questionOptionContainer > .questionOptionText {
+.questionOption > .questionOptionText {
   display: inline;
   font-size: 42rpx;
   font-family: SimHei;
@@ -81,7 +84,7 @@ page {
 
 /* 开始正确效果修改 */
 
-.questionOptionContainer > .serial-right {
+.questionOption > .serial-right {
   border: 1rpx solid #2aa515;
   background-color: #2aa515;
 }
@@ -92,7 +95,7 @@ page {
 
 /* 开始错误效果修改 */
 
-.questionOptionContainer > .serial-wrong {
+.questionOption > .serial-wrong {
   border: 1rpx solid #d81e06;
   background-color: #d81e06;
 }

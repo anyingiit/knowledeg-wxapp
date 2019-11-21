@@ -1,5 +1,222 @@
 /* pages/account/account-detail/account-detail.wxss */
-.box{
-  background:linear-gradient(0deg,rgba(255,53,53,1) 0%,rgba(252,255,172,1) 60%);
+
+.lineH5rpx {
+  height: 5rpx;
+  background-color: #aaa;
+}
+
+.container {
+  background: linear-gradient(0deg, rgba(255, 53, 53, 1) 0%, rgba(252, 255, 172, 1) 60%);
   min-height: 1334rpx;
+  padding: 0;
+}
+
+.fixInfoContainer {
+  flex: 6;
+  margin-bottom: 46rpx;
+}
+
+.infoContainer {
+  width: 630rpx;
+  height: 500rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  margin-top: 96rpx;
+}
+
+.scoreContainer {
+  height: 330rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.round {
+  width: 224rpx;
+  height: 224rpx;
+  border: 5rpx solid rgba(191, 191, 191, 1);
+  padding: 10rpx;
+  border-radius: 50%;
+}
+
+.roundDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #ff8400;
+}
+
+.roundDetail > text {
+  line-height: 61.5rpx;
+  text-align: center;
+  font-size: 63rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.detailContainer {
+  height: 165rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreDetail, .accuracy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreDetail > .box, .accuracy > .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreDetail, .accuracy {
+  width: 312rpx;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.scoreDetail {
+}
+
+.detailType {
+  font-size: 42rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 58rpx;
+}
+
+.detailScore {
+  color: #ff8400;
+  font-size: 40rpx;
+  font-family: SimHei;
+  font-weight: 400;
+}
+
+.scoreDetail + .line {
+  width: 5rpx;
+  height: 123rpx;
+  background: rgba(170, 170, 170, 1);
+}
+
+.accuracy {
+}
+
+.quesListContainer {
+  background-color: #fff;
+  width: 750rpx;
+  min-height: 564rpx;
+  flex: 4;
+  margin-bottom: 161rpx;
+}
+
+.type {
+  width: 644rpx;
+  font-size: 39rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(151, 23, 6, 1);
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 54rpx;
+  margin-bottom: 56rpx;
+}
+
+.serialContainer {
+  margin-left: 50rpx;
+  margin-right: 59rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* 开始处理图标样式 */
+
+/* 默认样式处理 */
+
+.fixSerial {
+  width: 20%;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.serial {
+  width: 81rpx;
+  height: 81rpx;
+  border: 2rpx solid black;
+  border-radius: 50%;
+}
+
+.serial > .text {
+  text-align: center;
+  line-height: 81rpx;
+  font-size: 40rpx;
+  font-family: SimHei;
+  color: black;
+  vertical-align: middle;
+}
+
+/* 开始错误处理 */
+
+.serial-wrong {
+  background: black;
+}
+
+.serial > .text-wrong {
+  color: white;
+}
+
+/* tapBar */
+
+.tapBar {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  height: 161rpx;
+  background: rgba(255, 255, 255, 1);
+  border-top: 2rpx solid rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+#view {
+  opacity: 0.3;
+}
+
+.simulationPic {
+  margin: 0 auto;
+  width: 81rpx;
+  height: 81rpx;
+}
+
+.submit > .text {
+  margin-top: 9rpx;
+  text-align: center;
+  font-size: 29rpx;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(151, 23, 6, 1);
 }

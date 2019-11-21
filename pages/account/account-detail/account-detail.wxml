@@ -1,60 +1,53 @@
 <!--pages/account/account-detail/account-detail.wxml-->
-<view class="box">
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-<text>pages/account/account-detail/account-detail.wxml</text>
-
+<view class="container">
+  <view class="fixInfoContainer">
+    <view class="infoContainer">
+      <view class="scoreContainer">
+        <view class="round">
+          <view class="roundDetail">
+            <text>得分</text>
+            <text>{{accountDetail.rightNum}}分</text>
+          </view>
+        </view>
+      </view>
+      <view class="lineH5rpx"></view>
+      <view class="detailContainer">
+        <view class="scoreDetail">
+          <view class="box">
+            <text class="detailType">总分(分)</text>
+            <text class="detailScore">{{accountDetail.questionQuantity}}</text>
+          </view>
+        </view>
+        <view class="line"></view>
+        <view class="accuracy">
+          <view class="box">
+            <text class="detailType">正确率</text>
+            <text class="detailScore">{{accountDetail.rightNum / accountDetail.questionQuantity * 100}}%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="quesListContainer">
+   <view class="type">{{accountDetail.questionType}}(共{{accountDetail.questionQuantity}}题,总分{{accountDetail.questionQuantity}}分)</view>
+    <view class="serialContainer">
+      <block wx:for="{{accountDetail.question}}" wx:for-item="que" wx:key="index">
+        <view class="fixSerial">
+          <view class="serial {{que.status != true ? 'serial-wrong' : ''}}">
+            <view class="text {{que.status != true ? 'text-wrong' : ''}}">{{que.questionNum}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="tapBar">
+  <view class="submit" id="view" bindtap="onView">
+    <image src='../../../images/icon/view.png' class='simulationPic'></image>
+    <text class="text">查看</text>
+  </view>
+  <view class="submit" bindtap="onDone">
+    <image src='../../../images/icon/done.png' class='simulationPic'></image>
+    <text class="text">完成</text>
+  </view>
 </view>

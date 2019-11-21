@@ -1,10 +1,12 @@
 <!--pages/account/account.wxml-->
 <text wx:if="{{account == false}}">这里什么都没有哦,快去答题吧!</text>
 <view class="itemContainer" wx:else>
-  <view class="item" wx:for="{{account}}" wx:key="index">
-    <text class="num">{{index}}.</text>
-    <text class="type">{{item.questionType}}</text>
-    <text class="quantity">总题数:{{item.questionQuantity}}</text>
-    <text class="correctRate">正确数量:{{item.rightNum}}</text>
-  </view>
+  <block wx:for="{{account}}" wx:key="index"> <!-- block无法应用样式,一般作为wx:for的载体 -->
+  	<view class="item" bind:tap="onItemTap" data-index="{{index}}">
+	    <text class="num">{{index+1}}.</text> <!-- 加一后更符合人类观看 -->
+	    <text class="type">{{item.questionType}}</text>
+	    <text class="quantity">总题数:{{item.questionQuantity}}</text>
+	    <text class="correctRate">正确数量:{{item.rightNum}}</text>
+  	</view>
+  </block>
 </view>
