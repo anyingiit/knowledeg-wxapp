@@ -23,7 +23,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentTab: ''
   },
 
   /**
@@ -54,9 +54,11 @@ Page({
   },
   onbindchange: function(even) {
     this.setData({
-      queIndex: even.detail.current
+      queIndex: even.detail.current,
+      currentTab: even.detail.current
     })
-    console.log(even.detail.current)
+    console.log("current:",even.detail.current)
+    console.log("currentTab:",this.data.currentTab)
   },
   onChoice: function(even) {
 
@@ -76,11 +78,13 @@ Page({
         title: '处理中...',
       })
       console.log("ok")
+      // console.log(this.data.currentTab)
       if (rightOption == option) { //题目回答正确的处理方法
         console.log("right")
         var serialStr = "question[" + index + "].theme." + option + ".serial"
         var textStr = "question[" + index + "].theme." + option + ".text"
         this.setData({
+          currentTab: this.data.currentTab+1,
           [serialStr]: "serial-right",
           [textStr]: "text-right"
         })
@@ -215,6 +219,11 @@ Page({
    */
   onReady: function() {
     wx.hideLoading()
+    wx.showToast({
+      title: '向右滑动切换题目',
+      image: '../../images/icon/swipe-left-right.png',
+      duration: 3500
+      })
   },
 
   /**
