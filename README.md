@@ -1,11 +1,12 @@
 <!-- Source: Best-README-Template BLANK_README (Unlicense) — https://github.com/othneildrew/Best-README-Template -->
 <a id="readme-top"></a>
 
-# Knowledeg Wxapp
+# knowledeg-wxapp
 
-Knowledeg wxapp: no README or manifest to go on; based on its name, built with JavaScript, this looks like a software project — open the repository to confirm.
+A WeChat Mini Program that quizzes players with 100 questions drawn at random from a local bank of about 1,000 multiple-choice items, scores each answer immediately, and saves every completed attempt to local storage for later review.
 
-[![CI](https://github.com/anyingiit/knowledeg-wxapp/actions/workflows/ci.yml/badge.svg)](https://github.com/anyingiit/knowledeg-wxapp/actions/workflows/ci.yml)
+**English** · [简体中文](README.zh-CN.md)
+
 [![License](https://img.shields.io/github/license/anyingiit/knowledeg-wxapp)](LICENSE)
 
 [Report a bug](https://github.com/anyingiit/knowledeg-wxapp/issues/new?template=bug_report.yml) · [Request a feature](https://github.com/anyingiit/knowledeg-wxapp/issues/new?template=feature_request.yml)
@@ -24,7 +25,9 @@ Knowledeg wxapp: no README or manifest to go on; based on its name, built with J
 
 ## About The Project
 
-Knowledeg wxapp: no README or manifest to go on; based on its name, built with JavaScript, this looks like a software project — open the repository to confirm.
+knowledeg-wxapp is a WeChat Mini Program (`app.json`, `app.js`, `app.wxss`, `project.config.json`), and GitHub marks the repository as archived. The home tab is still the stock quickstart's "Hello World" placeholder (`pages/index/index.js`), but the quiz itself is real: `pages/answer/answer.js` picks 100 questions at random out of the roughly 1,000 hard-coded multiple-choice items in `datas/local_db.js`, presents them one at a time in a swipeable card, and marks each tapped option right or wrong on the spot.
+
+Finishing (or abandoning) an attempt writes a scored record to local storage under the key `account`, which `pages/account/account.js` and `pages/account/account-detail/account-detail.js` list and can be reopened later. The remaining two tabs are unfinished scaffolding rather than features: `pages/logs/logs.js` is the stock WeChat quickstart's launch-log viewer, and `pages/testJson/testJson.js` just dumps the question bank to the console for debugging.
 
 See the [open issues](https://github.com/anyingiit/knowledeg-wxapp/issues) for planned features and known issues.
 
@@ -32,20 +35,22 @@ See the [open issues](https://github.com/anyingiit/knowledeg-wxapp/issues) for p
 
 ### Prerequisites
 
-- Git
+- [WeChat DevTools](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) — a WeChat Mini Program is not an npm package or a standalone script; `project.config.json` declares `"compileType": "miniprogram"` and a base library `"libVersion"` of `2.9.1`, and only WeChat DevTools compiles and previews that kind of project.
+- Your own WeChat Mini Program AppID, registered through the [WeChat Official Accounts Platform](https://mp.weixin.qq.com/). `project.config.json` already carries a committed `appid`; replace it with an AppID you control before importing the project.
 
 ### Installation
 
+There is no package manager and no build step to run ahead of time — WeChat DevTools compiles the source itself once the project is imported.
+
 ```sh
 git clone https://github.com/anyingiit/knowledeg-wxapp.git
-cd knowledeg-wxapp
 ```
+
+Then, inside WeChat DevTools: **Project → Import Project**, point it at the cloned folder (its `project.config.json` and `app.json` mark it as a Mini Program root), and supply your own AppID from the prerequisites above.
 
 ## Usage
 
-```sh
-knowledeg-wxapp --help
-```
+Compile and preview the project from WeChat DevTools, then use the app the way a player would: open the *Home* tab and navigate to *Answer* to start a quiz. `pages/answer/answer.js` deals out 100 random questions from `datas/local_db.js`; swipe between them and tap an option to lock in an answer, which is scored immediately against the question's recorded `result`. Submitting the run, finished or not, saves it to local storage and hands off to the *Account* tab (`pages/account/account.js`, `pages/account/account-detail/account-detail.js`), which lists every past attempt with its right/wrong/unanswered counts.
 
 ## Contributing
 
